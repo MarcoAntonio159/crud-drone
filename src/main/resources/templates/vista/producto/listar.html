@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="plantilla/template :: head">
 </head>
 <body>
@@ -8,12 +8,13 @@
   <h1 th:text="${titulo}"></h1>
 </div>
 <div class="container">
-  <a class="btn btn-primary btn-sm"
-     th:href="@{/vista/producto/crear}"
-     th:text="'Nuevo Producto'"
-     title="Crear Nuevo Registro">
-  </a>
-  <table class="table">
+  <a
+    class="btn btn-primary m-2"
+    th:href="@{/vista/producto/crear}"
+    th:text="'Nuevo Producto'"
+    title="Crear Nuevo Registro"
+  ></a>
+  <table class="table text-center table-bordered table-striped table-hover align-middle">
     <thead class="table-dark">
     <tr>
       <th scope="col">ID</th>
@@ -23,8 +24,7 @@
       <th scope="col">MODELO</th>
       <th scope="col">PRECIO</th>
       <th scope="col">STOCK</th>
-      <th scope="col">EDITAR</th>
-      <th scope="col">ELIMINAR</th>
+      <th scope="col">ACCIONES</th>
     </tr>
     </thead>
     <tbody>
@@ -37,18 +37,19 @@
       <td th:text="${pr.precio}"></td>
       <td th:text="${pr.stock}"></td>
       <td>
-        <a class="btn btn-success btn-sm"
-           th:href="@{/vista/producto/edit/} + ${pr.id}"
-           th:text="'Editar'"
-           title="Editar Registro">
+        <a
+          class="btn btn-success btn-sm m-1 bi bi-pencil-fill"
+          th:href="@{/vista/producto/edit/} + ${pr.id}"
+          title="Editar Registro"
+        >
         </a>
-      </td>
-      <td>
-        <a class="btn btn-danger btn-sm"
-           th:href="@{/vista/producto/delete/} + ${pr.id}"
-           th:text="'Eliminar'"
-           title="Eliminar Registro"
-           onclick="return confirm('Esta seguro de eliminar el registro?');">
+
+        <a
+          class="btn btn-danger btn-sm m-1 bi bi-trash-fill"
+          th:href="@{/vista/producto/delete/} + ${pr.id}"
+          title="Eliminar Registro"
+          onclick="return confirm('Esta seguro de eliminar el registro?');"
+        >
         </a>
       </td>
     </tr>
