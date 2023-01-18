@@ -41,6 +41,9 @@ public class Empleado implements Serializable {
     @NotNull
     @Column(name = "sueldo", nullable = false)
     private Double sueldo;
+    @NotNull
+    @Column(name = "clave", nullable = false, length = 500)
+    private String clave;
 
     public Long getId() {
         return id;
@@ -122,6 +125,14 @@ public class Empleado implements Serializable {
         this.sueldo = sueldo;
     }
 
+    public String getClave() {
+        return clave;
+    }
+
+    public void setClave(String clave) {
+        this.clave = clave;
+    }
+
     @Override
     public String toString() {
         return "Empleado{" +
@@ -135,6 +146,7 @@ public class Empleado implements Serializable {
                 ", sexo='" + sexo + '\'' +
                 ", cargo='" + cargo + '\'' +
                 ", sueldo=" + sueldo +
+                ", clave='" + clave + '\'' +
                 '}';
     }
 }
