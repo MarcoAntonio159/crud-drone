@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="plantilla/template :: head">
+</head>
+<body>
+<header th:replace="plantilla/template :: header"></header>
+<!--<h1>Prueba</h1>-->
+<div class="container">
+    <br>
+    <div class="card bg-light">
+        <form th:action="@{/vista/proveedor/save}" th:object="${proveedor}" method="post">
+            <div class="card-header bg-dark text-white" th:text="${titulo}"></div>
+            <div class="card-body">
+                <div class="row g-2 pt-3">
+                    <div class="col-md">
+                        <div class="form-floating">
+                            <input type="hidden" th:field="*{id}">
+                            <input type="text" th:field="*{ruc}" class="form-control" id="ruc" placeholder="Ruc">
+                            <label for="ruc" class="form-label text-muted">RUC del proveedor</label>
+                            <small class="form-text text-danger" th:if="${#fields.hasErrors('ruc')}"
+                                   th:errors="*{ruc}"></small>
+                        </div>
+                    </div>
+
+                    <div class="col-md">
+                        <div class="form-floating">
+                            <input type="text" th:field="*{razonSocial}" class="form-control" id="razonSocial"
+                                   placeholder="razonSocial">
+                            <label for="razonSocial" class="form-label text-muted">Razon Social</label>
+                            <small class="form-text text-danger" th:if="${#fields.hasErrors('razonSocial')}"
+                                   th:errors="*{razonSocial}"></small>
+                        </div>
+                    </div>
+
+                    <div class="col-md">
+                        <div class="form-floating">
+                            <input type="text" th:field="*{direccionFiscal}" class="form-control" id="direccionFiscal"
+                                   placeholder="direccionFiscal">
+                            <label for="direccionFiscal" class="form-label text-muted">Direccion Fiscal</label>
+                            <small class="form-text text-danger" th:if="${#fields.hasErrors('direccionFiscal')}"
+                                   th:errors="*{direccionFiscal}"></small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row g-2 pt-3">
+                    <div class="col-md">
+                        <div class="form-floating">
+                            <input type="text" th:field="*{distrito}" class="form-control" id="distrito"
+                                   placeholder="distrito">
+                            <label for="distrito" class="form-label text-muted">Distrito</label>
+                            <small class="form-text text-danger" th:if="${#fields.hasErrors('distrito')}"
+                                   th:errors="*{distrito}"></small>
+                        </div>
+                    </div>
+                    <div class="col-md">
+                        <div class="form-floating">
+                            <input type="text" th:field="*{telefono}" class="form-control" id="telefono"
+                                   placeholder="telefono">
+                            <label for="telefono" class="form-label text-muted">Telefono</label>
+                            <small class="form-text text-danger" th:if="${#fields.hasErrors('telefono')}"
+                                   th:errors="*{telefono}"></small>
+                        </div>
+                    </div>
+                    <div class="col-md">
+                        <div class="form-floating">
+                            <input type="text" th:field="*{correo}" class="form-control" id="correo" placeholder="correo">
+                            <label for="correo" class="form-label text-muted">Correo</label>
+                            <small class="form-text text-danger" th:if="${#fields.hasErrors('correo')}"
+                                   th:errors="*{correo}"></small>
+                        </div>
+                    </div>
+                </div>
+                <div class="row g-2 pt-3">
+                    <div class="col-md">
+                        <div class="form-floating">
+                            <input type="text" th:field="*{paginaWeb}" class="form-control" id="paginaWeb"
+                                   placeholder="paginaWeb">
+                            <label for="paginaWeb" class="form-label text-muted">Pagina Web</label>
+                            <small class="form-text text-danger" th:if="${#fields.hasErrors('paginaWeb')}"
+                                   th:errors="*{paginaWeb}"></small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card-footer bg-dark mt-3">
+                <button type="submit" class="btn btn-primary">Guardar</button>
+                <button id="return" type="button" class="btn btn-secondary float-end">Cancelar</button>
+            </div>
+        </form>
+    </div>
+</div>
+<footer th:replace="plantilla/template :: footer"></footer>
+
+<script>
+  const $ruc = document.querySelector('#ruc')
+  const $return = document.querySelector('#return')
+
+  $return.onclick = () => history.back()
+
+  $ruc.onkeydown = (e) => {
+    if (e.target.value.length >= 11 && e.key.length === 1) e.preventDefault()
+  }
+
+
+  const $telefono = document.querySelector('#telefono')
+
+  $telefono.onkeydown = (e) => {
+    if (e.target.value.length >= 9 && e.key.length === 1) e.preventDefault()
+  }
+
+
+
+</script>
+</body>
+</html>

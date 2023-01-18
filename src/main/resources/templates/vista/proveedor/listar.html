@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="plantilla/template :: head">
+</head>
+<body>
+<header th:replace="plantilla/template :: header"></header>
+<div class="container">
+  <h1 th:text="${titulo}"></h1>
+</div>
+<div class="container">
+  <a
+    class="btn btn-primary m-2"
+    th:href="@{/vista/proveedor/crear}"
+    th:text="'Nuevo Proveedor'"
+    title="Crear Nuevo Registro"
+  ></a>
+  <table class="table text-center table-bordered table-striped table-hover align-middle">
+    <thead class="table-dark">
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">RUC</th>
+      <th scope="col">RAZON SOCIAL</th>
+      <th scope="col">DIRECCION FISCAL</th>
+      <th scope="col">DISTRITO</th>
+      <th scope="col">TELEFONO</th>
+      <th scope="col">CORREO</th>
+      <th scope="col">PAGINA WEB</th>
+      <th scope="col">ACCIONES</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="pr:${proveedores}">
+      <th scope="row" th:text="${pr.id}"></th>
+      <td th:text="${pr.ruc}"></td>
+      <td th:text="${pr.razonSocial}"></td>
+      <td th:text="${pr.direccionFiscal}"></td>
+      <td th:text="${pr.distrito}"></td>
+      <td th:text="${pr.telefono}"></td>
+      <td th:text="${pr.correo}"></td>
+      <td th:text="${pr.paginaWeb}"></td>
+      <td>
+        <a
+          class="btn btn-success btn-sm m-1 bi bi-pencil-fill"
+          th:href="@{/vista/proveedor/edit/} + ${pr.id}"
+          title="Editar Registro"
+        >
+        </a>
+
+        <a
+          class="btn btn-danger btn-sm m-1 bi bi-trash-fill"
+          th:href="@{/vista/proveedor/delete/} + ${pr.id}"
+          title="Eliminar Registro"
+          onclick="return confirm('Esta seguro de eliminar el registro?');"
+        >
+        </a>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+
+</div>
+<footer th:replace="plantilla/template :: footer"></footer>
+</body>
+</html>
