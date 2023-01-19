@@ -2,11 +2,20 @@
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="plantilla/template :: head">
 </head>
-<body>
+<body class="min-vh-100">
 <header th:replace="plantilla/template :: header"></header>
-<div class="container">
-  <h1>Trabajo FINAL</h1>
-</div>
-<footer th:replace="plantilla/template :: footer"></footer>
+  <div class="container d-flex flex-column justify-content-center align-items-center">
+    <div class="p-5 rounded-3 bg-light shadow-lg" style="transform: translateY(50%);">
+      <div>
+        <h1 class="text-center">Trabajo FINAL - Unidad 05</h1>
+        <p class="text-center text-secondary">Framework Spring</p>
+      </div>
+
+      <div class="mt-5">
+        <p class="text-secondary text-center">En agradecimiento de nuestro querido profesor.</p>
+      </div>
+    </div>
+  </div>
+  <footer th:replace="plantilla/template :: footer"></footer>
 </body>
 </html>
