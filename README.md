@@ -11,5 +11,5 @@
   3. Implementacion de Depencias
   4. Creacion de Base de Datos
   5. Creacion de Service Eureka
-  6. Creacion e implementacion de Interfaz
+  6. Creacion e implementacion de Interfaz Template
  https://docs.google.com/presentation/d/1ZqCvDSL0ChBfqAy5Sb_mUfZzTeCWGRSdCbSyY6KmVDQ/edit?usp=sharing
